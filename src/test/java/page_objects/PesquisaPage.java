@@ -30,7 +30,7 @@ public class PesquisaPage extends BasePage
         actions.sendKeys(Keys.ESCAPE).perform();
     }
 
-    public void pesquisar()
+    public void clickBtnPesquisar()
     {
         browser.findElement(btnPesquisar).click();
     }
