@@ -12,4 +12,10 @@ public class ResultadosPage extends BasePage
     {
         super(_browser);
     }
+
+    public String verResultadoPesquisa()
+    {
+        waitElementVisible(txtResultado, 5);
+        return browser.findElement(txtResultado).getText().substring(0,15);
+    }
 }
