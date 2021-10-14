@@ -5,7 +5,9 @@ import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
+import org.junit.Assert;
 import page_objects.HomePage;
+import page_objects.ResultadosProdutosPage;
 
 public class BuscaDeProdutosSteps extends BaseSteps {
 
@@ -13,6 +15,7 @@ public class BuscaDeProdutosSteps extends BaseSteps {
      * Paginas necessaria
      **/
     HomePage pageHome = new HomePage(BaseSteps.browser);
+    ResultadosProdutosPage pageResultadoPesquisaProduto = new ResultadosProdutosPage(BaseSteps.browser);
 
     /**
      * Cenario: pesquisar o produto valido
@@ -21,6 +24,9 @@ public class BuscaDeProdutosSteps extends BaseSteps {
     public void que_eu_esteja_na_pagina_inicial_da_amazon()
     {
         pageHome.abrirAmazon();
+        String pageEsperada = pageHome.getUrl();
+        String pageEmExecucao = browser.getCurrentUrl();
+        Assert.assertTrue( pageEsperada.equals(pageEmExecucao) );
     }
 
     @Quando("^digito o nome de um produto$")
@@ -38,6 +44,8 @@ public class BuscaDeProdutosSteps extends BaseSteps {
     @Entao("^o sistema mostra uma lista de resultados$")
     public void o_sistema_mostra_uma_lista_de_resultados()
     {
+        String txtDaPesquisa = pageResultadoPesquisaProduto.resultadosPesquisa();
+        Assert.assertEquals("resultados para", txtDaPesquisa);
     }
 
     /**

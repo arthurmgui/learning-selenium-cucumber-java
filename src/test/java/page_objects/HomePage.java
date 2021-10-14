@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public class HomePage extends BasePage {
 
-    private String url = "https://www.amazon.com.br";
+    private String url = "https://www.amazon.com.br/";
     private By campoDePesquisa = By.id("twotabsearchtextbox");
     private By btnDePesquisa = By.id("nav-search-submit-button");
 
@@ -25,5 +25,9 @@ public class HomePage extends BasePage {
 
     public void clickBtnPesquisar() {
         browser.findElement(btnDePesquisa).click();
+    }
+
+    public String getUrl() {
+        return url;
     }
 }
