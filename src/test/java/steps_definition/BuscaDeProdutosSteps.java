@@ -60,6 +60,8 @@ public class BuscaDeProdutosSteps extends BaseSteps {
     @Entao("^o sistema mostra que nao existem resultados$")
     public void oSistemaMostraQueNaoExistemResultados()
     {
+        String txtDaPesquisaInvalida = pageResultadoPesquisaProduto.resultadosPesquisaInvalida();
+        Assert.assertEquals("Nenhum resultado para", txtDaPesquisaInvalida);
     }
 
     /**
@@ -74,5 +76,8 @@ public class BuscaDeProdutosSteps extends BaseSteps {
     @Entao("^o sistema nao mostra um resulato$")
     public void oSistemaNaoMostraUmResulato()
     {
+        String pageEsperada = pageHome.getUrl();
+        String pageEmExecucao = browser.getCurrentUrl();
+        Assert.assertTrue( pageEsperada.equals(pageEmExecucao) );
     }
 }
