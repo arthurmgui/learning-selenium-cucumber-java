@@ -8,6 +8,7 @@ public class ProdutoPage extends BasePage {
 
     private By btnAdicionarNoCarrinho     = By.id("add-to-cart-button");
     private By txtDeConfirmacaoDoCarrinho = By.xpath("//*[@id=\"huc-v2-order-row-confirm-text\"]/h1");
+    private By btnAbrirCarrinho             = By.id("hlb-view-cart-announce");
 
     public ProdutoPage(WebDriver _browser) {
         super(_browser);
@@ -19,5 +20,9 @@ public class ProdutoPage extends BasePage {
 
     public String confirmarProdutoNoCarrinho(){
         return browser.findElement(txtDeConfirmacaoDoCarrinho).getText();
+    }
+
+    public void abrirCarrinho(){
+        browser.findElement(btnAbrirCarrinho).click();
     }
 }

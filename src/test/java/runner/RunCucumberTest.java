@@ -35,7 +35,7 @@ import org.junit.runner.RunWith;
          *
          *	$ mvn verify -DskipTests
          *	$ mvn test verify
-         *	$ mvn clean test verify
+         *	$
          *	$ mvn clean test -Dcucumber.options="--tags @tagScenario" verify
          * */
 )
