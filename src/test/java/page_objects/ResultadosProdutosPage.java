@@ -9,7 +9,7 @@ public class ResultadosProdutosPage extends BasePage {
 
     private By txtResultadosPesquisa     = By.cssSelector("span[cel_widget_id=\"UPPER-RESULT_INFO_BAR-0\"] > h1");
     private By txtResultPesquisaInvalida = By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[3]/div[2]/div[1]/span/div/div/div[1]/span[1]");
-    private By primeiroProduto           = By.xpath("//*[@id=\"search\"]/div[1]/div[1]/div/span[3]/div[2]/div[2]/div/span/div/div/div/div/div[2]");
+    private By primeiroProduto           = By.cssSelector("div[data-component-type=\"s-search-result\"] :nth-child(1)");
 
 
     public ResultadosProdutosPage(WebDriver _browser) {
@@ -25,6 +25,7 @@ public class ResultadosProdutosPage extends BasePage {
     }
 
     public void abrirPrimeiroProduto(){
+        waitElementVisible(primeiroProduto, 20);
         browser.findElement(primeiroProduto).click();
     }
 

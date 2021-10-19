@@ -15,6 +15,7 @@ public class ProdutoPage extends BasePage {
     }
 
     public void adicionarAoCarrinho(){
+        waitElementVisible(btnAdicionarNoCarrinho, 10);
         browser.findElement(btnAdicionarNoCarrinho).click();
     }
 
