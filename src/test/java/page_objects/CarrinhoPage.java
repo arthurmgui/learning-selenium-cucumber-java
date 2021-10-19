@@ -10,18 +10,22 @@ public class CarrinhoPage extends BasePage {
     }
 
     private By txtDoTituloDoCarrinho  = By.xpath("//*[@id=\"sc-active-cart\"]/div/div/div/h1");
-    private By btnExcluirProduto      = By.xpath("//*[@id=\"sc-item-C8f82ef74-c825-46c8-bd6f-e98c706b22cd\"]/div[4]/div/div[1]/div/div/div[2]/div[1]/span[2]/span/input");
+    private By btnExcluirProduto      = By.cssSelector("input[type=\"submit\"][value=\"Excluir\"][data-action=\"delete\"]");
     private By txtDeExclusaoDoProduto = By.xpath("//*[@id=\"sc-active-cart\"]/div/div/div/h1");
 
     public String confirmarQueEstaNoCarrinho() {
+        waitElementVisible(txtDoTituloDoCarrinho, 20);
         return browser.findElement(txtDoTituloDoCarrinho).getText();
     }
 
     public void excluirProduto(){
+        waitElementVisible(btnExcluirProduto, 20);
         browser.findElement(btnExcluirProduto).click();
     }
 
-    public String confirmarCarrinhoVazio() {
+    public String confirmarCarrinhoVazio() throws InterruptedException {
+        Thread.sleep(3000);
+        waitElementVisible(txtDeExclusaoDoProduto, 20);
         return browser.findElement(txtDeExclusaoDoProduto).getText();
     }
 }

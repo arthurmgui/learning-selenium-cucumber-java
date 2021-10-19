@@ -50,7 +50,7 @@ public class CarrinhoDeComprasSteps extends BaseSteps {
     }
 
     @Entao("^o sistema mostra que o carrinho esta vazio$")
-    public void oSistemaMostraQueOCarrinhoEstaVazio() {
+    public void oSistemaMostraQueOCarrinhoEstaVazio() throws InterruptedException {
         String txtDoCarrinhoVazio = pageCarrinho.confirmarCarrinhoVazio();
         Assert.assertEquals("Seu carrinho de compras da Amazon está vazio.",txtDoCarrinhoVazio);
     }
